@@ -16,4 +16,18 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  after_action :set_csrf_cookie_in_header
+
+  private
+
+    # Set XSRF-TOKEN in response headers (in addition to cookies)
+    # This allows angular (or other clients) to round-trip the header
+    def set_csrf_cookie_in_header
+      cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
+    end
+
+    # Check if client (ie. angular) has submitted XSRF-TOKEN in header instead of url params
+    def verified_request?
+      super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
+    end
 end

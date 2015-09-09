@@ -7,6 +7,10 @@ describe ScannedBook do
   let(:reloaded)      { described_class.find(scanned_book.id) }
   subject { scanned_book }
 
+  it 'includes generic_file_ids in json' do
+    expect(subject.as_json['member_ids']).to eq []
+  end
+
   describe 'has note fields' do
     [:portion_note, :description].each do |note_type|
       it "should let me set a #{note_type}" do

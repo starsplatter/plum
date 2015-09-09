@@ -1,10 +1,16 @@
 # Generated via
 #  `rails generate curation_concerns:work ScannedBook`
-
 class CurationConcerns::ScannedBooksController < ApplicationController
   include CurationConcerns::CurationConcernController
   set_curation_concern_type ScannedBook
   skip_load_and_authorize_resource only: [:show, :manifest]
+
+  # Wrap json parameters in nested hash
+  # See http://api.rubyonrails.org/classes/ActionController/ParamsWrapper.html
+  wrap_parameters format: [:json], include: ScannedBook.attribute_names + [:member_ids]
+
+  def manage_pages
+  end
 
   def curation_concern
     if wants_to_update_remote_metadata?

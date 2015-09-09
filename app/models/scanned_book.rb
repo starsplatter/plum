@@ -29,6 +29,12 @@ class ScannedBook < ActiveFedora::Base
     self.attributes = remote_data.attributes
   end
 
+  def as_json(opts = nil)
+    json = super
+    json['member_ids'] = member_ids
+    json
+  end
+
   private
 
     def remote_data

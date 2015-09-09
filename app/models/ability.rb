@@ -18,6 +18,7 @@ class Ability
     can [:create, :show, :add_user, :remove_user, :index], Role
     can [:create, :read, :edit, :update, :destroy, :publish], curation_concerns
     can [:create, :read, :edit, :update, :destroy, :publish], GenericFile
+    can :manage_pages, ScannedBook
     # can :create, Collection
     can [:destroy], ActiveFedora::Base
     # can :manage, Resque
@@ -30,7 +31,7 @@ class Ability
 
   # Abilities that should be granted to technicians
   def scanned_book_creator_permissions
-    can [:create, :read, :edit, :update, :publish], ScannedBook
+    can [:create, :read, :edit, :update, :manage_pages, :publish], ScannedBook
     can [:create, :read, :edit, :update, :publish], GenericFile
   end
 
