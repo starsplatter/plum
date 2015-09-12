@@ -1,0 +1,14 @@
+<script type="text/ng-template" id="page_manager.html">
+    Managing the Pages within <a href='/concern/scanned_books/{{book.id}}'>{{book.title}}</a>
+    <button ng-click="updatePageOrder()" class="btn btn-default">Save Page Order</button>
+    <ul ui-sortable ng-model="pages" class="sortable">
+        <li ng-repeat="page in pages" class="image-box container">
+            <div class="row thumb-div">
+                <img ng-src="{{imageUrl(page)}}" class="thumb" alt="{{data.label}}"></img>
+            </div>
+            <form class='page-form form-horizontal' role="form" id="{{page.id}}-metadata">
+                <input class='form-control' ng-model="page.label"></input>
+            </form>
+        </li>
+    </ul>
+</script>

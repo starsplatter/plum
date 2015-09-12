@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require angular
+//= require angular-resource
+//= require angular-ui-sortable/sortable
 //= require turbolinks//
 // Required by Blacklight
 //= require blacklight/blacklight

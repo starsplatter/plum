@@ -1,0 +1,44 @@
+ul.sortable {
+    list-style-type: none;
+    align: center;
+    margin: 0 auto;
+    padding: 0;
+    width: 90%;
+}
+.image-box {
+    margin: 10px;
+    padding: 10px 0;
+    height: 250px;
+    width: 250px;
+    float: left;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+}
+.image-box:hover {
+    border: 1px solid red;
+}
+
+.page-option {
+    padding-right: 0;
+}
+
+.thumb-div {
+    position: relative;
+    height: 150px;
+}
+
+.thumb-div img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.image-box a {
+    display: block;
+    align: center;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}

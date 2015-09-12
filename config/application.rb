@@ -13,6 +13,8 @@ module Aardvark
       g.test_framework :rspec, spec: true
     end
 
+    config.assets.paths << "#{Rails.root}/bower_components/"
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
